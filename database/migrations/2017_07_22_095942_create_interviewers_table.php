@@ -14,7 +14,7 @@ class CreateInterviewersTable extends Migration
     public function up()
     {
         Schema::create('Interviewers', function (Blueprint $table) {
-            $table->increments('id')->unsigned()->index();
+            $table->increments('id');
             $table->string('name');
             $table->string('email_id');
             $table->string('experience');
@@ -24,7 +24,7 @@ class CreateInterviewersTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.          
      *
      * @return void
      */
