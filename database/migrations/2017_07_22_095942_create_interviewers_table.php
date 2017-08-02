@@ -14,9 +14,9 @@ class CreateInterviewersTable extends Migration
     public function up()
     {
         Schema::create('Interviewers', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->string('name');
-            $table->string('email_id');
+            $table->string('email_id')->unique();
             $table->string('experience');
             $table->string('position_applied');
             $table->timestamps();
