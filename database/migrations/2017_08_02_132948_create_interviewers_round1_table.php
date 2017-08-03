@@ -21,7 +21,7 @@ class CreateInterviewersRound1Table extends Migration
             $table->integer('Section_3_marks'); 
             $table->integer('Total'); 
             $table->string('Status'); 
-            $table->foreign('id')->references('email_id')->on('interviewers');
+            $table->foreign('id')->references('id')->on('interviewers');
             $table->timestamps();
         });
     }
