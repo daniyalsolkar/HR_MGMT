@@ -179,6 +179,12 @@ return [
 
         Spatie\Fractal\FractalServiceProvider::class,
 
+        /*
+* Backpack Service Providers...
+*/
+Backpack\Base\BaseServiceProvider::class,
+Backpack\CRUD\CrudServiceProvider::class,
+
        
 
     ],
