@@ -179,6 +179,8 @@ return [
 
         Spatie\Fractal\FractalServiceProvider::class,
 
+       
+
     ],
 
     /*
