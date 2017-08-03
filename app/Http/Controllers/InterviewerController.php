@@ -43,7 +43,7 @@ class InterviewerController extends BaseController
     public function updateRound2Marks(Request $request)
     {
     	try {
-                $interviewer=InterViewerRound2::where('id',$request->id)->firstOrfail();
+                $interviewer=Interviewer::where('id',$request->id)->firstOrfail();
     	}
     	catch(ModelNotFoundException $e)
     	{

@@ -21,5 +21,7 @@ Route::group([
     'namespace' => 'Admin'
 ], function() {
     // your CRUD resources and other admin routes here
-    CRUD::resource('tag', 'TagCrudController');
+    CRUD::resource('tag', 'Admin\TagCrudController');
+    CRUD::resource('interviewers', 'InterviewersCrudController');
+    CRUD::resource('employees', 'EmployeesCrudController');
 });
