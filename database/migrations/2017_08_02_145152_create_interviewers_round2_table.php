@@ -15,12 +15,13 @@ class CreateInterviewersRound2Table extends Migration
     {
         Schema::create('InterviewRoundTwo', function (Blueprint $table) {
             $table->integer('id')->unsigned();
+            $table->string('email_id');
             $table->string('communication');
             $table->string('program_logic');
             $table->string('puzzle');
             $table->string('data_structure');
-            $table->float('total');
-            $table->string('status');
+            $table->float('total')->nullable(true);
+            $table->string('status')->nullable(true);
             $table->foreign('id')->references('id')->on('interviewers');
             $table->timestamps();
         });

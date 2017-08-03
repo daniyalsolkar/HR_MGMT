@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('/registerInterviewer','InterviewerController@registerInterviewer');
+Route::post('/updateRound2Marks','InterviewerController@updateRound2Marks');

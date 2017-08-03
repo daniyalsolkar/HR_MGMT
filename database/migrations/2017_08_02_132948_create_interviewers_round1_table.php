@@ -16,11 +16,11 @@ class CreateInterviewersRound1Table extends Migration
         Schema::create('InterviewRoundOne', function (Blueprint $table) {
             $table->integer('id')->unsigned();
             $table->string('email_id');
-            $table->integer('Section_1_marks'); 
-            $table->integer('Section_2_marks'); 
-            $table->integer('Section_3_marks'); 
-            $table->integer('Total'); 
-            $table->string('Status'); 
+            $table->integer('section_1_marks'); 
+            $table->integer('section_2_marks'); 
+            $table->integer('section_3_marks'); 
+            $table->float('total')->nullable(true); 
+            $table->string('status')->nullable(true); 
             $table->foreign('id')->references('id')->on('interviewers');
             $table->timestamps();
         });
