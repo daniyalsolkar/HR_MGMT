@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Interviewer;
+use App\InterViewerRound2;
 use App\Transformers\InterviewerTransformer;
 use League\Fractal;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class InterviewerController extends BaseController
 {
-    //
-
     public function registerInterviewer(Request $request)
     {
     	$interviewer=Interviewer::create($request->all());
@@ -29,10 +29,12 @@ class InterviewerController extends BaseController
 
     public function updateRound1Marks(Request $request)
     {
-    	$interviewer=InterViewerRound1::where('id',$request->id)->firstOrfail();
-    	if(is_null($interviewer))
+    	try {
+                $interviewer=InterViewerRound1::where('id',$request->id)->firstOrfail();
+    	}
+    	catch(ModelNotFoundException $e)
     	{
-             return $this->sendFailureResponse(11,'Failed to update marks.');
+                return $this->sendFailureResponse(11,'Record not found.');
     	}
     	InterViewerRound1::create($request->all());
     	return $this->sendSuccessResponse(array("message" => "Record Updated Successfully."));
@@ -40,24 +42,26 @@ class InterviewerController extends BaseController
 
     public function updateRound2Marks(Request $request)
     {
-    	$interviewer=InterViewerRound2::where('id',$request->id)->firstOrfail();
-    	if(is_null($interviewer))
-    	{
-             return $this->sendFailureResponse(11,'Failed to update marks.');
+    	try {
+                $interviewer=InterViewerRound2::where('id',$request->id)->firstOrfail();
     	}
-    	//$interviewer=InterViewerRound2::create($request->all());
-    	$interviewer->create($request->all());
-    	$interviewer->total=$interviewer->communication+$interviewer->program_logic+
-    	                    $interviewer->puzzle+$interviewer->data_structure;
-    	if($interviewer->total>15)
+    	catch(ModelNotFoundException $e)
     	{
-    		$interviewer->status="selected"
+                return $this->sendFailureResponse(11,'Record not found.');
+    	}
+    	$content=$request->all();
+    	$content['total']=$content['communication']+$content['program_logic']+
+    	                  $content['puzzle']+$content['data_structure'];
+    	if($content['total']>15)
+    	{
+    		$content['status']="selected";
     	}
     	else
     	{
-    		$interviewer->status="rejected"
+    		$content['status']="rejected";
     	}
-    	$interviewer->save();
+    
+    	InterViewerRound2::create($content);
 
     	return $this->sendSuccessResponse(array("message" => "Record Updated Successfully."));
     }
