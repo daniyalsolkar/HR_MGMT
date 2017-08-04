@@ -36,6 +36,17 @@ class InterviewerController extends BaseController
     	{
                 return $this->sendFailureResponse(11,'Record not found.');
     	}
+        $content=$request->all();
+        $content['total']=$content['section_1_marks']+$content['section_2_marks']+
+                          $content['section_3_marks'];
+        if($content['total']>30)
+        {
+            $content['status']="selected";
+        }
+        else
+        {
+            $content['status']="rejected";
+        }
     	InterViewerRound1::create($request->all());
     	return $this->sendSuccessResponse(array("message" => "Record Updated Successfully."));
     }
