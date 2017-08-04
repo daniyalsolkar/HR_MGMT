@@ -36,7 +36,12 @@ class Interviewers extends Model
     */
     public function roundOne()
     {
-        return $this->hasOne(InterviewerMarks::class,'id');
+        return $this->hasOne(InterViewerRoundOneMarks::class,'id');
+    }
+
+    public function roundTwo()
+    {
+        return $this->hasOne(InterViewerRoundTwoMarks::class,'id');
     }
     /*
     |--------------------------------------------------------------------------

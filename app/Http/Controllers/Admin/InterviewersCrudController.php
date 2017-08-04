@@ -31,13 +31,21 @@ class InterviewersCrudController extends CrudController
         $this->crud->setFromDb();
 
         $this->crud->addColumns([
-               [
+            [
                   'name' => 'round_one', // the name of the db column
                   'type' => 'select',
                   'label' => 'Round One Total', // the db column for the foreign key
                   'entity' => 'roundOne', // the method that defines the relationship in your Model
                   'attribute' => 'total', // foreign key attribute that is shown to user
-                  'model' => "App\Models\InterviewerMarks", // foreign key model
+                  'model' => "App\Models\InterviewerRoundOneMarks", // foreign key model
+            ],
+               [
+                  'name' => 'round_two', // the name of the db column
+                  'type' => 'select',
+                  'label' => 'Round Two Total', // the db column for the foreign key
+                  'entity' => 'roundTwo', // the method that defines the relationship in your Model
+                  'attribute' => 'total', // foreign key attribute that is shown to user
+                  'model' => "App\Models\InterviewerRoundTwoMarks", // foreign key model
             ],[
                 'name'  => 'email_id',
                 'label' => 'Email',

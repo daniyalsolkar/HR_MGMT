@@ -1,29 +1,26 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
+use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class User extends Authenticatable
+class InterviewerRoundOneMarks extends Model
 {
     use CrudTrait;
-    use Notifiable;
 
-        /*
+     /*
     |--------------------------------------------------------------------------
     | GLOBAL VARIABLES
     |--------------------------------------------------------------------------
     */
 
-     protected $table = 'users';
+    protected $table = 'interviewroundone';
     //protected $primaryKey = 'id';
     // public $timestamps = false;
-    protected $guarded = ['id'];
-    //protected $fillable = [];
-    protected $hidden = ['password','remember_token'];
+    // protected $guarded = ['id'];
+    // protected $fillable = [];
+    // protected $hidden = [];
     // protected $dates = [];
 
     /*
@@ -31,22 +28,16 @@ class User extends Authenticatable
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    /**
-     * Send the password reset notification.
-     *
-     * @param  string  $token
-     * @return void
-     */
-    public function sendPasswordResetNotification($token)
-    {
-        $this->notify(new ResetPasswordNotification($token));
-    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function interviewer()
+    {
+        return $this->belongsTo(Interviewers::class,'id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
