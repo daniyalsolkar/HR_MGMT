@@ -15,7 +15,7 @@ class CreateInterviewersRound1Table extends Migration
     {
         Schema::create('InterviewRoundOne', function (Blueprint $table) {
             $table->integer('id')->unsigned();
-            $table->string('email_id');
+            $table->string('email_id')->unique();
             $table->integer('section_1_marks'); 
             $table->integer('section_2_marks'); 
             $table->integer('section_3_marks'); 

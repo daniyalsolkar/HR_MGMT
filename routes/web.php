@@ -24,4 +24,6 @@ Route::group([
     CRUD::resource('tag', 'Admin\TagCrudController');
     CRUD::resource('interviewers', 'InterviewersCrudController');
     CRUD::resource('employees', 'EmployeesCrudController');
+    CRUD::resource('holidays', 'HolidaysCrudController');
+    
 });

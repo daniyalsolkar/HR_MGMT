@@ -25,6 +25,8 @@
 
           <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/interviewers') }}"><i class="fa fa-dashboard"></i> <span>Interviewers</span></a></li>
 
+          <li><a href="{{ url(config('backpack.base.route_prefix', 'admin').'/holidays') }}"><i class="fa fa-dashboard"></i> <span>Holidays</span></a></li>
+
 
           <!-- ======================================= -->
           <li class="header">{{ trans('backpack::base.user') }}</li>
