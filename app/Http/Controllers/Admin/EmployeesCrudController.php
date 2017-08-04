@@ -30,6 +30,28 @@ class EmployeesCrudController extends CrudController
 
         $this->crud->setFromDb();
 
+
+$this->crud->addColumns([
+        [    
+                'name'=> 'mobile_no',
+                'label' => 'Mobile No',
+                'type'=> 'string',
+
+            ],
+            [    
+                'name'=> 'profile_pic',
+                'label' => 'Profile Picture URL',
+                'type'=> 'string',
+
+            ],
+            [    
+                'name'=> 'ctc',
+                'label' => 'CTC',
+                'type'=> 'string',
+
+            ]
+             ]);
+
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

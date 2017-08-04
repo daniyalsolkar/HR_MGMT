@@ -49,8 +49,15 @@ class InterviewersCrudController extends CrudController
             ],[
                 'name'  => 'email_id',
                 'label' => 'Email',
-                'type'  => 'text',
-            ]]);
+                'type'  => 'string',
+            ],
+            [    
+                'name'=> 'position_applied',
+                'label' => 'Position Applied For',
+                'type'=> 'string',
+
+            ]
+            ]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
