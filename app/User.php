@@ -2,15 +2,18 @@
 
 namespace App;
 
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Backpack\Base\app\Notifications\ResetPasswordNotification as ResetPasswordNotification;
 use Backpack\CRUD\CrudTrait;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
     use CrudTrait;
     use Notifiable;
+    use HasApiTokens;
 
         /*
     |--------------------------------------------------------------------------

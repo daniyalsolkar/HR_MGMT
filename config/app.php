@@ -103,9 +103,9 @@ return [
     |
     */
 
-    'key' => env('APP_KEY','base64:e6tNBZEvNjsjGMNiMkJVxqpC+aDiVrVqhXXQmzY4TW4='),
+    'key' => env('APP_KEY'),
 
-    'cipher' => 'AES-128-CBC',
+    'cipher' => 'AES-256-CBC',
 
     /*
     |--------------------------------------------------------------------------
@@ -180,10 +180,12 @@ return [
         Spatie\Fractal\FractalServiceProvider::class,
 
         /*
-* Backpack Service Providers...
-*/
-Backpack\Base\BaseServiceProvider::class,
-Backpack\CRUD\CrudServiceProvider::class,
+        * Backpack Service Providers...
+        */
+        Backpack\Base\BaseServiceProvider::class,
+        Backpack\CRUD\CrudServiceProvider::class,
+
+        Laravel\Passport\PassportServiceProvider::class,
 
        
 
